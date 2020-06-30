@@ -9,6 +9,7 @@
 #include <ctype.h>
 using namespace std;
 
+//Function declarations
 bool determineOpponent();
 int getRPS(); 
 
@@ -54,19 +55,21 @@ bool determineOpponent()
 	char userResponse = ' ';	//User response to determine if playing cpu
 	bool playComputer;			//returned value, if true, CPU, else human
 
+	//Prompt user to choose if they want to play human or CPU
 	cout << "Do you want to play against a Computer? (Y/N): ";
 	cin >> userResponse;
 	cin.clear();
 	cin.ignore(numeric_limits <streamsize> ::max(), '\n');	//not sure exactly as to how to use cin.ignore but this works
 	userResponse = char(tolower(userResponse)); 
 
+	//Check if the user entered a valid response
 	if (userResponse != 'y'  && userResponse != 'n')
 	{
 		cout << "Response not valid, please enter only \"Y\" or \"N\"." << endl << endl << endl;
 		determineOpponent();
 	}
 		
-
+	//Determine if the user wants to play against another human or CPU
 	if (userResponse == 'n')
 	{
 		playComputer = false;
@@ -92,7 +95,7 @@ int getRPS()
 {
 	int handsign = 1;
 
-
+	//User chooses handsign
 	cout << "Pick your move: " << endl << endl;
 	cout << "Enter 1 for Rock '\n' Enter 2 for Scissors '\n' Enter 3 for Paper: ";
 	cin >> handsign;
